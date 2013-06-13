@@ -1,0 +1,10 @@
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\bin\Reportalo.dll
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\bin\Reportalo.pdb
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\obj\Release\Reportalo.dll
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\obj\Release\Reportalo.pdb
+C:\Users\smokeshift\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\bin\Reportalo.dll
+C:\Users\smokeshift\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\bin\Reportalo.pdb
+C:\Users\smokeshift\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\obj\Release\Reportalo.csprojResolveAssemblyReference.cache
+C:\Users\smokeshift\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\obj\Release\Reportalo.dll
+C:\Users\smokeshift\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\obj\Release\Reportalo.pdb
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\Reportalo\Reportalo\obj\Release\Reportalo.csprojResolveAssemblyReference.cache

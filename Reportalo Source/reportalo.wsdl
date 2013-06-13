@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://reportaloWS.azurewebsites.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://reportaloWS.azurewebsites.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://reportaloWS.azurewebsites.net/">
+      <s:element name="RegisterUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegisterUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadCategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSubCategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadSubCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadSubCategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIssue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sub_category_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="issue_desc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="issue_action" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GIS" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="photo" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateIssueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateIssueResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchIssueByDateCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="date_from" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="date_to" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="sub_category_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchIssueByDateCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchIssueByDateCategoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="RegisterUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadCategories" />
+  </wsdl:message>
+  <wsdl:message name="LoadCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadSubCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadSubCategories" />
+  </wsdl:message>
+  <wsdl:message name="LoadSubCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadSubCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateIssueSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateIssue" />
+  </wsdl:message>
+  <wsdl:message name="CreateIssueSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchIssueByDateCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:SearchIssueByDateCategory" />
+  </wsdl:message>
+  <wsdl:message name="SearchIssueByDateCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:SearchIssueByDateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportaloSoap">
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input message="tns:RegisterUserSoapIn" />
+      <wsdl:output message="tns:RegisterUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadCategories">
+      <wsdl:input message="tns:LoadCategoriesSoapIn" />
+      <wsdl:output message="tns:LoadCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSubCategories">
+      <wsdl:input message="tns:LoadSubCategoriesSoapIn" />
+      <wsdl:output message="tns:LoadSubCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateIssue">
+      <wsdl:input message="tns:CreateIssueSoapIn" />
+      <wsdl:output message="tns:CreateIssueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchIssueByDateCategory">
+      <wsdl:input message="tns:SearchIssueByDateCategorySoapIn" />
+      <wsdl:output message="tns:SearchIssueByDateCategorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportaloSoap" type="tns:ReportaloSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://reportaloWS.azurewebsites.net/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://reportaloWS.azurewebsites.net/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCategories">
+      <soap:operation soapAction="http://reportaloWS.azurewebsites.net/LoadCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSubCategories">
+      <soap:operation soapAction="http://reportaloWS.azurewebsites.net/LoadSubCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIssue">
+      <soap:operation soapAction="http://reportaloWS.azurewebsites.net/CreateIssue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchIssueByDateCategory">
+      <soap:operation soapAction="http://reportaloWS.azurewebsites.net/SearchIssueByDateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportaloSoap12" type="tns:ReportaloSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUser">
+      <soap12:operation soapAction="http://reportaloWS.azurewebsites.net/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://reportaloWS.azurewebsites.net/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadCategories">
+      <soap12:operation soapAction="http://reportaloWS.azurewebsites.net/LoadCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSubCategories">
+      <soap12:operation soapAction="http://reportaloWS.azurewebsites.net/LoadSubCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateIssue">
+      <soap12:operation soapAction="http://reportaloWS.azurewebsites.net/CreateIssue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchIssueByDateCategory">
+      <soap12:operation soapAction="http://reportaloWS.azurewebsites.net/SearchIssueByDateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Reportalo">
+    <wsdl:port name="ReportaloSoap" binding="tns:ReportaloSoap">
+      <soap:address location="http://reportalows.azurewebsites.net/reportalo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportaloSoap12" binding="tns:ReportaloSoap12">
+      <soap12:address location="http://reportalows.azurewebsites.net/reportalo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

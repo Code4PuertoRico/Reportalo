@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reportalo", "Reportalo\Reportalo.csproj", "{9517C734-33A7-4D50-BEC5-394B23702AAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9517C734-33A7-4D50-BEC5-394B23702AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9517C734-33A7-4D50-BEC5-394B23702AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9517C734-33A7-4D50-BEC5-394B23702AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9517C734-33A7-4D50-BEC5-394B23702AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

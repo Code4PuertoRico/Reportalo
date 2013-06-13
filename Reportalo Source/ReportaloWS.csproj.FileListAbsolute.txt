@@ -1,0 +1,13 @@
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\ReportaloWS\ReportaloWS\bin\ReportaloWS.dll
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\ReportaloWS\ReportaloWS\bin\ReportaloWS.pdb
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.dll
+C:\Users\jrivera\Documents\Visual Studio 2012\Projects\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.pdb
+C:\Users\Danny\Documents\TP\ReportaloWS\ReportaloWS\bin\ReportaloWS.dll
+C:\Users\Danny\Documents\TP\ReportaloWS\ReportaloWS\bin\ReportaloWS.pdb
+C:\Users\Danny\Documents\TP\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.dll
+C:\Users\Danny\Documents\TP\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.pdb
+C:\Users\smokeshift\Documents\Visual Studio 2012\ReportaloWS\ReportaloWS\bin\ReportaloWS.dll
+C:\Users\smokeshift\Documents\Visual Studio 2012\ReportaloWS\ReportaloWS\bin\ReportaloWS.pdb
+C:\Users\smokeshift\Documents\Visual Studio 2012\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.csprojResolveAssemblyReference.cache
+C:\Users\smokeshift\Documents\Visual Studio 2012\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.dll
+C:\Users\smokeshift\Documents\Visual Studio 2012\ReportaloWS\ReportaloWS\obj\Release\ReportaloWS.pdb

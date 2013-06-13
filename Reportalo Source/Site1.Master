@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication4.Site1" %>
+
+<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+<script src="js/geo.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var map = null, infobox, dataLayer;
+
+    function GetMap() {
+        // Initialize the map
+        map = new Microsoft.Maps.Map(document.getElementById("myMap"),
+                   { credentials: "AkTho68juGJOhxbF9NqDa4qk1soLpnq-kzOzX1TnYfj8NdpUcer0_mIiKo6JmP1s" });
+
+        dataLayer = new Microsoft.Maps.EntityCollection();
+        map.entities.push(dataLayer);
+
+        var infoboxLayer = new Microsoft.Maps.EntityCollection();
+        map.entities.push(infoboxLayer);
+
+        infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false, offset: new Microsoft.Maps.Point(0, 20) });
+        infoboxLayer.push(infobox);
+
+        //AddLocation();
+        //getLocation();
+    }
+
+    var x = document.getElementById("Label1");//incase the location is not obtained
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else { x.innerHTML = "Geolocation is not supported by this browser."; }
+    }
+
+    function showPosition(position) {
+        var pin1 = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude));
+        pin1.Title = "This is Pin 1";
+        pin1.Description = "Pin 1 description";
+        Microsoft.Maps.Events.addHandler(pin1, 'click', displayInfobox);
+        dataLayer.push(pin1);
+
+
+    }
+
+    function AddLocation() {
+        var lat = new Array();
+        var lon = new Array();
+        var i;
+        var z;
+
+        //Store Latitude in an array
+
+        lat[0] = 28.474;
+        lat[1] = 28.633;
+        lat[2] = 53.5501222;
+        lat[3] = 61.270;
+        lat[4] = 11.867;
+        lat[5] = -19.973;
+        lat[6] = 47.989;
+        lat[7] = 76.516;
+
+        //Store Longitude in an array
+
+        lon[0] = 77.081;
+        lon[1] = 77.219;
+        lon[2] = -1.4872017;
+        lon[3] = 87.187;
+        lon[4] = 23.203;
+        lon[5] = -58.359;
+        lon[6] = -112.5;
+        lon[7] = -42.187;
+
+        //Calculate the total pins in the array  
+
+
+        var TotalPins = lat.length;
+
+
+        //Now add multiple pushpins and infobox on the map
+
+        for (i = 0; i < TotalPins; i++) {
+            for (z = 0; z <= i; z++) {
+
+                AddPushPins(lat[i], lon[i], "My Title", "This is infobox!");
+
+            }
+        }
+
+    }
+
+
+    function AddPushPins(lat, lon, PinTitle, PinInfo) {
+
+
+        MapPin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat, lon));
+
+
+        MapPin.Title = PinTitle;
+        MapPin.Description = PinInfo;
+        Microsoft.Maps.Events.addHandler(MapPin, 'click', displayInfobox);
+        dataLayer.push(MapPin);
+    }
+
+
+    function displayInfobox(e) {
+        if (e.targetType == 'pushpin') {
+            infobox.setLocation(e.target.getLocation());
+            infobox.setOptions({ visible: true, title: e.target.Title, description: e.target.Description });
+        }
+    }
+
+
+    
+
+</script>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="adminCSS.css" rel="stylesheet" type="text/css" />
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    <!--onload="GetMap();"-->
+<body >
+    <form id="form1" runat="server">
+
+        
+
+        <table style="width:100%;background-image:url(images/header_strip.png);">
+            <tr>
+                <td style="text-align:center;">
+                    <asp:Image ID="Image1" runat="server" ImageAlign="Middle" ImageUrl="images/logo.png" /></td>
+            </tr>
+        </table>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+         
+
+    </form>
+</body>
+</html>
